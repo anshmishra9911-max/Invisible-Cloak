@@ -58,14 +58,14 @@ while cap.isOpened():
     # Convert to HSV
     hsv = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
 
-    # Define white color ranges
-    lower_white1 = np.array([0, 0, 200])
-    upper_white1 = np.array([180,50, 555])
-    mask1 = cv2.inRange(hsv, lower_white1, upper_white1)
+    # Define red color ranges
+    lower_red1 = np.array([0, 80, 20])
+    upper_red1 = np.array([10,255, 255])
+    mask1 = cv2.inRange(hsv, lower_red1, upper_red1)
 
-    lower_white2 = np.array([160, 80, 20])
-    upper_white2 = np.array([180, 255, 255])
-    mask2 = cv2.inRange(hsv, lower_white2, upper_white2)
+    lower_red2 = np.array([160, 80, 20])
+    upper_red2 = np.array([180, 255, 255])
+    mask2 = cv2.inRange(hsv, lower_red2, upper_red2)
 
     mask = mask1 + mask2
 
@@ -90,3 +90,4 @@ if use_video:
     bg_video.release()
 
 cv2.destroyAllWindows()
+
